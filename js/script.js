@@ -1,6 +1,3 @@
-
-//DARK MODE TOGGLE BUTTON//
-
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.querySelector(".menu");
   const navigation = document.querySelector("nav");
@@ -13,7 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const themeButton = document.querySelector(".theme-toggle");
   const root = document.documentElement;
-  const savedTheme = localStorage.getItem("bugcero-theme");
+  let savedTheme = null;
+
+  try {
+    savedTheme = localStorage.getItem("bugcero-theme");
+  } catch (error) {
+    // El cambio de tema sigue funcionando aunque el navegador bloquee el almacenamiento.
+  }
+
   const systemPrefersDark = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;
@@ -43,16 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentTheme = root.getAttribute("data-theme");
       const nextTheme = currentTheme === "dark" ? "light" : "dark";
 
-      localStorage.setItem("bugcero-theme", nextTheme);
+      try {
+        localStorage.setItem("bugcero-theme", nextTheme);
+      } catch (error) {
+        // El tema se aplica para esta visita, aunque no se pueda guardar.
+      }
+
       applyTheme(nextTheme);
     });
   }
-
-
-
-
-//SEND MAIL TO CONTACT//
-
 
   const yearElements = document.querySelectorAll("[data-year]");
 
