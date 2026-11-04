@@ -440,3 +440,44 @@ footer span {
     color: var(--ink);
   }
 }
+/* Acceso directo a WhatsApp: queda a la izquierda del chatbot. */
+.whatsapp-float {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.whatsapp-float svg {
+  display: block;
+  width: 31px;
+  height: 31px;
+  fill: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .whatsapp-float {
+    left: 16px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+}
