@@ -20,9 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
+      const formData = new FormData(contactForm);
+      const recipient = "bugcero.st@gmail.com";
+      const subject = encodeURIComponent(
+        "Consulta desde el sitio BugCero: " + formData.get("asunto")
+      );
+      const body = encodeURIComponent(
+        "Nombre: " + formData.get("nombre") +
+        "\nCorreo: " + formData.get("email") +
+        "\nTema: " + formData.get("asunto") +
+        "\n\nMensaje:\n" + formData.get("mensaje")
+      );
+
       const formNote = document.querySelector("#form-note");
       formNote.textContent =
-        "Configurá el correo de destino en js/script.js para habilitar el envío.";
+        "Se abrirá tu aplicación de correo para que confirmes el envío.";
+
+      window.location.href =
+        "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
     });
   }
 });
