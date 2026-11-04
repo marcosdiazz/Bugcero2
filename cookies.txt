@@ -1,0 +1,4 @@
+# Netscape HTTP Cookie File
+# Written by HTTrack Website Copier
+#HttpOnly_bugcero4.wordpress.com	FALSE	/	FALSE	1793838109	wp_sharing_258406533_1_x	1793838107
+#HttpOnly_bugcero4.wordpress.com	FALSE	/	FALSE	1793838109	wp_sharing_258406533_1_facebook	1793838107
