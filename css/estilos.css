@@ -53,7 +53,7 @@ header {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   font: 800 23px Manrope, sans-serif;
   white-space: nowrap;
 }
