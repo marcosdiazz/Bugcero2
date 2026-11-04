@@ -1,1 +1,28 @@
-document.addEventListener("DOMContentLoaded",()=>{const b=document.querySelector(".menu"),n=document.querySelector("nav");if(b&&n)b.onclick=()=>n.classList.toggle("open");document.querySelectorAll("[data-year]").forEach(x=>x.textContent=new Date().getFullYear());const f=document.querySelector("#contact-form");if(f)f.onsubmit=e=>{e.preventDefault();document.querySelector("#form-note").textContent="Configurá el correo de destino en js/script.js para habilitar el envío."}});
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu");
+  const navigation = document.querySelector("nav");
+
+  if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+      navigation.classList.toggle("open");
+    });
+  }
+
+  const yearElements = document.querySelectorAll("[data-year]");
+
+  yearElements.forEach((element) => {
+    element.textContent = new Date().getFullYear();
+  });
+
+  const contactForm = document.querySelector("#contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formNote = document.querySelector("#form-note");
+      formNote.textContent =
+        "Configurá el correo de destino en js/script.js para habilitar el envío.";
+    });
+  }
+});
