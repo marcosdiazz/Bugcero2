@@ -1,3 +1,6 @@
+
+//DARK MODE TOGGLE BUTTON//
+
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.querySelector(".menu");
   const navigation = document.querySelector("nav");
@@ -44,6 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTheme(nextTheme);
     });
   }
+
+
+
+
+//SEND MAIL TO CONTACT//
+
 
   const yearElements = document.querySelectorAll("[data-year]");
 
