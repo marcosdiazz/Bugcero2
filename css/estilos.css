@@ -25,7 +25,8 @@ a {
 img {
   display:block;
   width:100%;
-  object-fit:cover
+  object-fit:cover;
+  border-radius: 20px;
 }
 
 .top {
@@ -338,3 +339,104 @@ footer small {
 
 }
 
+
+/* Colores del sitio: el botón cambia las variables según el tema activo. */
+:root {
+  color-scheme: light;
+  --surface: #ffffff;
+  --soft: #eaf0e7;
+  --band: #e9eee6;
+  --line: #dce2dc;
+  --top-color: #10251f;
+  --header-color: #ffffff;
+  --footer-muted: #aebeb2;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7eee8;
+  --forest: #315d44;
+  --green: #9bcba0;
+  --paper: #111915;
+  --muted: #aebbb1;
+  --surface: #1b2720;
+  --soft: #1a2a21;
+  --band: #202e25;
+  --line: #3b4a40;
+  --top-color: #0b120e;
+  --header-color: #17231c;
+  --footer-muted: #afbbb2;
+}
+
+header {
+  background: var(--header-color);
+  color: var(--ink);
+}
+
+.top,
+footer {
+  background: var(--top-color);
+}
+
+.hero,
+.intro {
+  background: var(--soft);
+}
+
+.band,
+.values {
+  background: var(--band);
+}
+
+.cards > a,
+.cards > div,
+form {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+input,
+select,
+textarea {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+footer span {
+  color: var(--footer-muted);
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--green);
+}
+
+@media (max-width: 700px) {
+  .theme-toggle {
+    margin-left: auto;
+  }
+
+  nav {
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  .menu {
+    background: var(--surface);
+    color: var(--ink);
+  }
+}

@@ -8,6 +8,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const themeButton = document.querySelector(".theme-toggle");
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem("bugcero-theme");
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  const startingTheme =
+    savedTheme || (systemPrefersDark ? "dark" : "light");
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+
+    const nextTheme = theme === "dark" ? "claro" : "oscuro";
+    themeButton.textContent = theme === "dark" ? "☀" : "☾";
+    themeButton.setAttribute(
+      "aria-label",
+      "Cambiar a modo " + nextTheme
+    );
+    themeButton.setAttribute("title", "Cambiar a modo " + nextTheme);
+    themeButton.setAttribute(
+      "aria-pressed",
+      String(theme === "dark")
+    );
+  }
+
+  if (themeButton) {
+    applyTheme(startingTheme);
+
+    themeButton.addEventListener("click", () => {
+      const currentTheme = root.getAttribute("data-theme");
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+      localStorage.setItem("bugcero-theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+  }
+
   const yearElements = document.querySelectorAll("[data-year]");
 
   yearElements.forEach((element) => {
